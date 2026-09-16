@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy — Aveline</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    max-width: 42rem; margin: 0 auto; padding: 3rem 1.25rem 5rem;
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1a1a1a; background: #fdfdfc;
+  }
+  @media (prefers-color-scheme: dark) { body { color: #e8e8e6; background: #17171a; } }
+  h1 { font-size: 1.6rem; margin: 0 0 .3rem; letter-spacing: -.02em; }
+  h2 { font-size: 1.05rem; margin: 2.2rem 0 .5rem; }
+  .updated { opacity: .7; margin: 0 0 2rem; font-size: .92rem; }
+  ul { padding-left: 1.2rem; }
+  li { margin: .4rem 0; }
+  a { color: inherit; }
+  footer { margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(128,128,128,.3); font-size: .9rem; opacity: .75; }
+</style>
+</head>
+<body>
+
+<h1>Privacy policy</h1>
+<p class="updated">Aveline. Last updated 16 September 2026.</p>
+
+<p>Aveline is self-hosted software. There is no hosted service and no company server. When you
+run it, you run it on your own machine against your own database. This policy describes what
+the software does with your data. Whoever operates a particular installation is responsible for
+that installation.</p>
+
+<h2>What Google data it accesses</h2>
+<p>With your permission, Aveline uses the Google Calendar API to access:</p>
+<ul>
+  <li>Events on the calendar belonging to the Google account that granted permission, including
+      title, description, start and end time, location, organiser and attendees.</li>
+  <li>Events on any other calendar that has been shared with that account, with the same fields.</li>
+</ul>
+<p>It requests <code>calendar.events.readonly</code> to read events. If the operator turns on
+event creation, it also requests <code>calendar.events</code> so it can create events on its own
+calendar and invite people to them.</p>
+<p>It does not access Gmail, Drive, Contacts, or any other Google service.</p>
+
+<h2>Why it accesses it</h2>
+<ul>
+  <li>To show you what is happening today and what is coming up.</li>
+  <li>To find clashes between appointments and things you have asked it to do.</li>
+  <li>To create events on its own calendar and invite you to them, so you can see what it has
+      planned and decline anything you do not want.</li>
+</ul>
+
+<h2>Where the data goes</h2>
+<p><strong>Stored on your own infrastructure.</strong> Calendar data is written to a PostgreSQL
+database controlled by whoever runs the installation. It is not sent to the authors of this
+software and there is no central server that receives it.</p>
+
+<p><strong>Sent to a large language model provider.</strong> This is the part you should read
+carefully. To write its daily brief and to decide what to say, Aveline sends a summary of
+relevant data to an external language model API. That summary can include event titles, dates,
+times and locations, and the names of people it knows about. Which provider receives it is
+configured by the operator. The current default is DeepInfra. The provider's own terms and
+privacy policy apply to that data.</p>
+
+<p>Nothing else leaves the installation. There is no analytics, no tracking, no advertising, and
+data is not sold or shared with anyone else.</p>
+
+<h2>How long it is kept</h2>
+<p>Indefinitely, until the operator deletes the database. The software is deliberately
+append-only: when an event changes, the older version is marked superseded rather than deleted,
+so that the history stays answerable. If you want your data removed from an installation, ask
+whoever runs it.</p>
+
+<h2>Limited Use</h2>
+<p>Aveline's use and transfer of information received from Google APIs adheres to the
+<a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services
+User Data Policy</a>, including the Limited Use requirements.</p>
+
+<h2>Withdrawing access</h2>
+<p>You can revoke access at any time at
+<a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. If you
+shared a calendar with a worker, you can stop sharing it from your own Google Calendar settings.
+Either one takes effect immediately and the software cannot undo it.</p>
+
+<h2>Contact</h2>
+<p><a href="mailto:cheaway@gmail.com">cheaway@gmail.com</a></p>
+
+<footer>
+  <p><a href="./index.html">Back to Aveline</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aveline — a runtime for long-lived AI workers</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    max-width: 42rem; margin: 0 auto; padding: 3rem 1.25rem 5rem;
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1a1a1a; background: #fdfdfc;
+  }
+  @media (prefers-color-scheme: dark) { body { color: #e8e8e6; background: #17171a; } }
+  h1 { font-size: 1.9rem; margin: 0 0 .35rem; letter-spacing: -.02em; }
+  h2 { font-size: 1.1rem; margin: 2.4rem 0 .6rem; }
+  .tagline { font-size: 1.1rem; margin: 0 0 2rem; opacity: .75; }
+  ul { padding-left: 1.2rem; }
+  li { margin: .4rem 0; }
+  a { color: inherit; }
+  footer { margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(128,128,128,.3); font-size: .9rem; opacity: .75; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .9em; }
+</style>
+</head>
+<body>
+
+<h1>Aveline</h1>
+<p class="tagline">A runtime for long-lived AI workers with persistent memory.</p>
+
+<p>Most AI assistants forget everything between conversations. Aveline runs workers that do
+not. A worker keeps a record of what it has been told, what it has undertaken to do, and what
+is on its calendar, and it uses that record every time it wakes up.</p>
+
+<p>You define what a worker is for. The runtime itself has no job of its own: a personal
+assistant and a company operator are the same code with different configuration.</p>
+
+<h2>What a worker does</h2>
+<ul>
+  <li>Reads messages sent to it and records what it learned, with a link back to the message
+      that said it.</li>
+  <li>Keeps its own calendar, and reads calendars that people have shared with it.</li>
+  <li>Tracks what it has promised to do and wakes itself up when something falls due.</li>
+  <li>Writes a short brief each morning covering the day ahead and anything overdue.</li>
+  <li>Drafts what it would say or schedule. Nothing is sent until you explicitly allow it,
+      one kind of action and one channel at a time.</li>
+</ul>
+
+<h2>How it uses Google Calendar</h2>
+<p>A worker has its own Google account. With your permission it:</p>
+<ul>
+  <li><strong>Reads</strong> events from its own calendar and from any calendar you have shared
+      with it, so it knows what is happening and can spot clashes.</li>
+  <li><strong>Creates</strong> events on its own calendar and invites you to them, so you can
+      see what it has planned and decline anything you do not want.</li>
+</ul>
+<p>It never edits or deletes anything on your calendar. When you share a calendar with a
+worker, share it read-only, and Google will refuse any write regardless of what the software
+does. You can stop sharing at any time, from your own calendar settings.</p>
+
+<h2>Status</h2>
+<p>Early, self-hosted and open source under the Apache 2.0 licence. It runs on Node and
+PostgreSQL. There is no hosted service yet.</p>
+
+<footer>
+  <p><a href="./privacy.html">Privacy policy</a></p>
+  <p>Contact: <a href="mailto:cheaway@gmail.com">cheaway@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
